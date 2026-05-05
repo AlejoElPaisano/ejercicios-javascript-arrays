@@ -1,6 +1,6 @@
 const numbers = [1, 2, 3, 4 , 5, 6];
 const numbersUniq = [1,1,1,1,1,1,2,1,1,1];
-
+/*
 //Haga una función que elimine el primer elemento del arreglo.
 const deleteFirstElement = (array) => array.shift();
 deleteFirstElement(numbers);
@@ -47,21 +47,13 @@ function minSum(array)
     return sorted[0] + sorted[1];
 }
 console.log(minSum([7,4,2,3]));
-
+*/
 //Dado un arreglo de números enteros, encuentre el mayor producto posible entre dos números adyacentes y
 // devuelva el valor de dicho producto.
 function maxAdjacentElementsProduct (array)
 {
-    let maxElement = array [0] * array [1];
-    for (let i = 0; i < array.length - 1; i++)
-    {
-        const element = array[i] * array[i + 1];
-        if (element > maxElement)
-        {
-            maxElement = element;
-        }
-    }
-    return maxElement;
+    const multipliedElements = array.slice(0, -1).map((num, index) => num * array[index + 1]);
+    return Math.max(...multipliedElements);
 }
 console.log(maxAdjacentElementsProduct([9, 5, 10, 2, 24, -1]));
 
@@ -69,13 +61,17 @@ console.log(maxAdjacentElementsProduct([9, 5, 10, 2, 24, -1]));
 //Consideramos que tenemos a las ovejas y al lobo en un arreglo y que en ese mismo consideramos al último elemento como el primero.
 //Consideración: El lobo solo puede comer a la oveja que tiene a su derecha.
 function warnTheSheep(array) {
-    const reversedArray = array.reverse();
-    const wolfPosition = reversedArray.indexOf("wolf");
+    const newArray = array.slice(0);
+    let sheepTaken = 0;
 
-    if (wolfPosition === 0) {
+    while (newArray.pop() !== "wolf") {
+        sheepTaken++;
+    }
+
+    if (sheepTaken === 0) {
         return "No sigas comiendo ovejas!";
     } else {
-        return `Hey! Oveja numero ${wolfPosition}! El lobo esta cerca!`;
+        return `Hey! Oveja numero ${sheepTaken}! El lobo esta cerca!`;
     }
 }
 
