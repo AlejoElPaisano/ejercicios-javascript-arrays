@@ -1,6 +1,6 @@
 const numbers = [1, 2, 3, 4 , 5, 6];
 const numbersUniq = [1,1,1,1,1,1,2,1,1,1];
-/*
+
 //Haga una función que elimine el primer elemento del arreglo.
 const deleteFirstElement = (array) => array.shift();
 deleteFirstElement(numbers);
@@ -47,7 +47,7 @@ function minSum(array)
     return sorted[0] + sorted[1];
 }
 console.log(minSum([7,4,2,3]));
-*/
+
 //Dado un arreglo de números enteros, encuentre el mayor producto posible entre dos números adyacentes y
 // devuelva el valor de dicho producto.
 function maxAdjacentElementsProduct (array)
